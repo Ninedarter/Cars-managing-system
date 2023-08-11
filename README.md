@@ -14,7 +14,6 @@ The frontend repository contains the user interface, enabling users to interact 
 
 #  Getting Started
 To get started with the Car Management System, follow these steps:
-(**)Before running the frontend, you must start the backend application. Ensure you have the backend up and running before proceeding with the frontend setup.
 
 1.Clone the Repository: Clone this repository to your local machine using git clone.
 2.Configure H2 database: you can change port, username, password in application.propierties in the project file if needed. 
@@ -29,15 +28,4 @@ http://localhost:8082/h2-console
 
 3.Build and Run: Compile the Java application and launch it.
 
-4.Register a User : Create your user account within the application.
-There is sample user with login  details :  
- email: john@mail.com
- password: john123
-
-5.Add Cars: Start adding your vehicles to the system, providing all the required information.
-
-6.Track Expenses: Log maintenance and fuel expenses for each car, enabling accurate expense monitoring.
-
-7.View Charts: Explore the monthly expense charts to gain insights into your spending habits.
-
-8.Update Car Info: Periodically update car information as mileage, technical and insurance expiration dates to reflect the latest details accurately.
+4. Run frontend part of the Car Management System.
