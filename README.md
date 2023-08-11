@@ -1,6 +1,14 @@
-# Cars managing system backend
-System allows to create account, manage your current cars, track previous expenses
+# Car Management System - Backend
 
+Welcome to the backend repository of the Car Management System. This repository focuses on the backend implementation, providing the core functionality to manage cars, track expenses, and handle user interactions. The backend is built using Java and Spring Boot, leveraging an H2 in-memory database for data storage.
+
+## Frontend Repository
+
+For the frontend part of the Car Management System, please visit our separate repository:
+
+[Car Management System - Frontend]https://github.com/Ninedarter/Cars-managing-system-frontend
+
+The frontend repository contains the user interface, enabling users to interact with the Car Management System. It's built using Angular.
 # Description
 The Car Management System is a Java application designed to help users efficiently manage their cars, track expenses, and stay organized with essential vehicle information. Whether you're a car enthusiast or simply want to keep tabs on your vehicles, this application has you covered. This is only backend, you also need to clone and run this repository Here's what you can do with the Car Management System:
 
@@ -31,8 +39,6 @@ http://localhost:8082/h2-console
     - JDBC URL: `jdbc:h2:mem:testdb`
     - Username: `sa`
     - Password: `sa`
- 
-
 3.Build and Run: Compile the Java application and launch it.
 6.
 
