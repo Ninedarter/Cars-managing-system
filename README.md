@@ -6,7 +6,7 @@ Welcome to the backend repository of the Car Management System. This repository 
 
 For the frontend part of the Car Management System, please visit separate repository:
 
-\https://github.com/Ninedarter/Cars-managing-system-frontend
+https://github.com/Ninedarter/Cars-managing-system-frontend
 
 The frontend repository contains the user interface, enabling users to interact with the Car Management System. It's built using Angular.
 
