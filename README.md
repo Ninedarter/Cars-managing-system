@@ -10,23 +10,11 @@ For the frontend part of the Car Management System, please visit separate reposi
 
 The frontend repository contains the user interface, enabling users to interact with the Car Management System. It's built using Angular.
 
-# Description
-The Car Management System is a Java application designed to help users efficiently manage their cars, track expenses, and stay organized with essential vehicle information. Whether you're a car enthusiast or simply want to keep tabs on your vehicles, this application has you covered. This is only backend, you also need to clone and run this repository Here's what you can do with the Car Management System:
-
-# Features
-- User Registration: Create a personalized account to access the system, ensuring privacy and security.
-
-- Car Registration: Easily add new cars to the system, providing crucial details like make, model, year, and initial mileage.
-
-- Expense Tracking: Keep a comprehensive record of expenses related to your vehicles, including maintenance costs and fuel expenditures. Stay on top of your budget and identify areas for optimization.
-
-- Monthly Expense Charts: Visualize your car expenses with interactive charts that display monthly spending patterns. This feature helps you better understand your financial outlays.
-
-- Car Information Updates: Update essential car information such as mileage, technical expiration dates, and insurance dates. Maintain accurate records for your vehicles.
 
 
 #  Getting Started
 To get started with the Car Management System, follow these steps:
+(**)Before running the frontend, you must start the backend application. Ensure you have the backend up and running before proceeding with the frontend setup.
 
 1.Clone the Repository: Clone this repository to your local machine using git clone.
 2.Configure H2 database: you can change port, username, password in application.propierties in the project file if needed. 
