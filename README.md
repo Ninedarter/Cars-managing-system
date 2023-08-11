@@ -2,7 +2,7 @@
 System allows to create account, manage your current cars, track previous expenses
 
 # Description
-The Car Management System is a Java application designed to help users efficiently manage their cars, track expenses, and stay organized with essential vehicle information. Whether you're a car enthusiast or simply want to keep tabs on your vehicles, this application has you covered. Here's what you can do with the Car Management System:
+The Car Management System is a Java application designed to help users efficiently manage their cars, track expenses, and stay organized with essential vehicle information. Whether you're a car enthusiast or simply want to keep tabs on your vehicles, this application has you covered. This is only backend, you also need to clone and run this repository Here's what you can do with the Car Management System:
 
 # Features
 - User Registration: Create a personalized account to access the system, ensuring privacy and security.
@@ -17,15 +17,26 @@ The Car Management System is a Java application designed to help users efficient
 
 
 #  Getting Started
-1.To get started with the Car Management System, follow these steps:
+To get started with the Car Management System, follow these steps:
 
 1.Clone the Repository: Clone this repository to your local machine using git clone.
 
-1.Set Up the Database: Configure the database settings (MySQL, PostgreSQL, etc.) to store user accounts, car details, and expenses.
+2.Set Up the Database: Configure the database settings (MySQL, PostgreSQL, etc.) to store user accounts, car details, and expenses. Open application.properties or application.yaml to configure to your preferable databases.
+For developing purposes  default database is H2.
+To access H2 database and see data after running program you need to go to :
+http://localhost:8082/h2-console
 
-1.Build and Run: Compile the Java application and launch it. Make sure to set up the necessary dependencies, such as database connectors.
+    - On the H2 console login page, use the following details to log in:
 
-1.Register a User: Create your user account within the application.
+    - JDBC URL: `jdbc:h2:mem:testdb`
+    - Username: `sa`
+    - Password: `sa`
+ 
+
+3.Build and Run: Compile the Java application and launch it.
+6.
+
+5..Register a User: Create your user account within the application.
 
 1.Add Cars: Start adding your vehicles to the system, providing all the required information.
 
