@@ -16,3 +16,21 @@ The Car Management System is a Java application designed to help users efficient
 - Car Information Updates: Update essential car information such as mileage, technical expiration dates, and insurance dates. Maintain accurate records for your vehicles.
 
 
+#  Getting Started
+1.To get started with the Car Management System, follow these steps:
+
+1.Clone the Repository: Clone this repository to your local machine using git clone.
+
+1.Set Up the Database: Configure the database settings (MySQL, PostgreSQL, etc.) to store user accounts, car details, and expenses.
+
+1.Build and Run: Compile the Java application and launch it. Make sure to set up the necessary dependencies, such as database connectors.
+
+1.Register a User: Create your user account within the application.
+
+1.Add Cars: Start adding your vehicles to the system, providing all the required information.
+
+1.Track Expenses: Log maintenance and fuel expenses for each car, enabling accurate expense monitoring.
+
+1.View Charts: Explore the monthly expense charts to gain insights into your spending habits.
+
+1.Update Car Info: Periodically update car information to reflect the latest details accurately.
