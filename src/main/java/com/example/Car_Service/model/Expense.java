@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Entity
-public class Maintenance {
+public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +23,6 @@ public class Maintenance {
     private LocalDate date;
     private Double price;
 
-
-    int [] masyvas = new int[2];    
-    int masyvas2[];
     @ManyToOne
     @JoinColumn(name = "vehicleId")
     private Vehicle vehicle;

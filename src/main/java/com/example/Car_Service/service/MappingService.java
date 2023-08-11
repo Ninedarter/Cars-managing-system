@@ -1,11 +1,11 @@
 package com.example.Car_Service.service;
 
-import com.example.Car_Service.model.Maintenance;
+import com.example.Car_Service.model.Expense;
 import com.example.Car_Service.model.Owner;
 import com.example.Car_Service.model.Vehicle;
 import com.example.Car_Service.repository.OwnerRepository;
 import com.example.Car_Service.repository.VehicleRepository;
-import com.example.Car_Service.request.maintenance.MaintenanceRequest;
+import com.example.Car_Service.request.expence.ExpenseRequest;
 import com.example.Car_Service.request.vehicle.VehicleRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class MappingService {
     public Vehicle mapVehicle(VehicleRequest vehicleRequest) {
         Owner owner = ownerRepository.findByEmail(vehicleRequest.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("Owner not found"));
-       return  Vehicle.builder()
+        return Vehicle.builder()
                 .brand(vehicleRequest.getBrand())
                 .model(vehicleRequest.getModel())
                 .yearOfMade(vehicleRequest.getYearOfMade())
@@ -36,17 +36,26 @@ public class MappingService {
 
     }
 
-    public Maintenance mapMaintenance(MaintenanceRequest maintenanceRequest) {
-        Vehicle vehicle = vehicleRepository.findByVinCode(maintenanceRequest.getVinCode())
-                .orElseThrow(() -> new IllegalArgumentException("Vehicle not found"));
-        Maintenance mappedMaintenance = Maintenance.builder()
-                .id(maintenanceRequest.getId())
-                .name(maintenanceRequest.getName())
-                .date(maintenanceRequest.getDate())
-                .price(maintenanceRequest.getPrice())
+
+    public Vehicle mapVehicleByVinCode(Vehicle vehicleToUpdate, VehicleRequest request) {
+        vehicleToUpdate.setMileage(request.getMileage());
+        vehicleToUpdate.setTechnicalExpirationDate(request.getTechnicalExpirationDate());
+        vehicleToUpdate.setInsuranceExpirationDate(request.getInsuranceExpirationDate());
+        vehicleToUpdate.setImgUrl(request.getImgUrl());
+        return vehicleToUpdate;
+
+    }
+
+    public Expense mapMaintenance(ExpenseRequest expenseRequest) {
+        Vehicle vehicle = vehicleRepository.findByVinCode(expenseRequest.getVinCode());
+        Expense mappedExpense = Expense.builder()
+                .id(expenseRequest.getId())
+                .name(expenseRequest.getName())
+                .date(expenseRequest.getDate())
+                .price(expenseRequest.getPrice())
                 .vehicle(vehicle)
                 .build();
-        return mappedMaintenance;
+        return mappedExpense;
     }
 
 }

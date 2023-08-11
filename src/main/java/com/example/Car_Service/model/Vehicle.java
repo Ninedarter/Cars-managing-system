@@ -40,7 +40,7 @@ public class Vehicle {
 
     @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Maintenance> maintenances;
+    private List<Expense> expenses;
 
 
 }

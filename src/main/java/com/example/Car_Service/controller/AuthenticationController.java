@@ -3,6 +3,7 @@ package com.example.Car_Service.controller;
 import com.example.Car_Service.request.owner.AuthenticationRequest;
 import com.example.Car_Service.request.owner.RegisterRequest;
 import com.example.Car_Service.response.AuthenticationResponse;
+import com.example.Car_Service.response.RegisterResponse;
 import com.example.Car_Service.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(authenticationService.register(request));
     }
 

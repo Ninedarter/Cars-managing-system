@@ -25,7 +25,6 @@ public class Owner implements UserDetails {
 
     private String firstName;
     private String lastName;
-    private Integer age;
     private String email;
     private String password;
 

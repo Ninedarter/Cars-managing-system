@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -37,9 +36,8 @@ public class VehicleService {
     }
 
     public VehicleResponse update(VehicleRequest request) {
-        Optional<Vehicle> existingVehicle = vehicleRepository.findByVinCode(request.getVinCode());
-        Vehicle vehicleToUpdate = mappingService.mapVehicle(request);
-        vehicleToUpdate.setId(existingVehicle.get().getId());
+        Vehicle existingVehicle = vehicleRepository.findByVinCode(request.getVinCode());
+        Vehicle vehicleToUpdate = mappingService.mapVehicleByVinCode(existingVehicle, request);
         vehicleRepository.save(vehicleToUpdate);
         return new VehicleResponse(vehicleRepository.findVehiclesByEmail(request.getEmail()));
     }

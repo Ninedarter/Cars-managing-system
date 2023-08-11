@@ -1,10 +1,9 @@
 package com.example.Car_Service.service;
 
-import com.example.Car_Service.model.Maintenance;
+import com.example.Car_Service.model.Expense;
 import com.example.Car_Service.model.Vehicle;
-import com.example.Car_Service.repository.MaintenanceRepository;
 import com.example.Car_Service.repository.VehicleRepository;
-import com.example.Car_Service.response.MaintenanceResponse;
+import com.example.Car_Service.response.ExpenseResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -12,19 +11,18 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-class MaintenanceServiceTest {
+class ExpenseServiceTest {
 
     @Mock
     private VehicleRepository vehicleRepository;
 
 
     @InjectMocks
-    private MaintenanceService maintenanceService;
+    private ExpenseService expenseService;
 
     @BeforeEach
     public void setUp() {
@@ -41,19 +39,19 @@ class MaintenanceServiceTest {
                 .yearOfMade(2015)
                 .build();
 
-        Maintenance mockedMaintenance1 = Maintenance.builder()
+        Expense mockedExpense1 = Expense.builder()
                 .id(1L)
                 .name("Oil change")
                 .vehicle(mockedVehicle1).
                 build();
 
-        Maintenance mockedMaintenance2 = Maintenance.builder()
+        Expense mockedExpense2 = Expense.builder()
                 .id(2L)
                 .name("Brake change")
                 .vehicle(mockedVehicle1).
                 build();
 
-        mockedVehicle1.setMaintenances(Arrays.asList(mockedMaintenance1, mockedMaintenance2));
+        mockedVehicle1.setExpenses(Arrays.asList(mockedExpense1, mockedExpense2));
 
         Vehicle mockedVehicle2 = Vehicle.builder()
                 .id(2L)
@@ -61,20 +59,20 @@ class MaintenanceServiceTest {
                 .yearOfMade(2018)
                 .build();
 
-        Maintenance mockedMaintenance3 = Maintenance.builder()
+        Expense mockedExpense3 = Expense.builder()
                 .id(3L)
                 .name("Oil and filter change")
                 .vehicle(mockedVehicle1).
                 build();
 
-        mockedVehicle2.setMaintenances(Arrays.asList(mockedMaintenance3));
+        mockedVehicle2.setExpenses(Arrays.asList(mockedExpense3));
 
-        when(vehicleRepository.findByVinCode("ABC123")).thenReturn(Optional.of(mockedVehicle1));
-        MaintenanceResponse response = maintenanceService.getByVinCode("ABC123");
+        when(vehicleRepository.findByVinCode("ABC123")).thenReturn((mockedVehicle1));
+        ExpenseResponse response = expenseService.getByVinCode("ABC123");
 
-        assertEquals(2, response.getMaintenances().size());
-        assertEquals(2015, response.getMaintenances().get(0).getVehicle().getYearOfMade());
-        assertEquals("Brake change", response.getMaintenances().get(1).getName());
+        assertEquals(2, response.getExpenses().size());
+        assertEquals(2015, response.getExpenses().get(0).getVehicle().getYearOfMade());
+        assertEquals("Brake change", response.getExpenses().get(1).getName());
     }
 
 }

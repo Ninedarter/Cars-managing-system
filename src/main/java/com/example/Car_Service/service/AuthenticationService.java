@@ -6,6 +6,7 @@ import com.example.Car_Service.request.owner.AuthenticationRequest;
 import com.example.Car_Service.request.owner.RegisterRequest;
 import com.example.Car_Service.response.AuthenticationResponse;
 
+import com.example.Car_Service.response.RegisterResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,17 +22,16 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
-        Owner owner = Owner.builder()
+    public RegisterResponse register(RegisterRequest request) {
+        Owner ownerToRegister = Owner.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .build();
-        ownerRepository.save(owner);
-        String jwtToken = jwtService.generateToken(owner);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
+        ownerRepository.save(ownerToRegister);
+        return RegisterResponse.builder()
+                .owner(ownerToRegister)
                 .build();
     }
 

@@ -1,4 +1,4 @@
-package com.example.Car_Service.request.maintenance;
+package com.example.Car_Service.request.expence;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MaintenanceRequest {
+public class ExpenseRequest {
     private Long id;
     private String name;
     private LocalDate date;

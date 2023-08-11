@@ -1,9 +1,9 @@
 package com.example.Car_Service.config;
 
-import com.example.Car_Service.model.Maintenance;
+import com.example.Car_Service.model.Expense;
 import com.example.Car_Service.model.Owner;
 import com.example.Car_Service.model.Vehicle;
-import com.example.Car_Service.repository.MaintenanceRepository;
+import com.example.Car_Service.repository.ExpenseRepository;
 import com.example.Car_Service.repository.OwnerRepository;
 import com.example.Car_Service.repository.VehicleRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,14 +18,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
-import javax.servlet.Filter;
 import java.time.LocalDate;
-import java.util.Arrays;
 
 @Configuration
 @RequiredArgsConstructor
@@ -33,12 +27,11 @@ public class ApplicationConfig {
 
 
     @Bean
-    CommandLineRunner commandLineRunner(VehicleRepository vehicleRepository, OwnerRepository ownerRepository, MaintenanceRepository maintenanceRepository) {
+    CommandLineRunner commandLineRunner(VehicleRepository vehicleRepository, OwnerRepository ownerRepository, ExpenseRepository expenseRepository) {
         return args -> {
             Owner owner1 = Owner.builder()
                     .firstName("John")
                     .lastName("Doe")
-                    .age(30)
                     .email("pirmas@gmail.com")
                     .password(new BCryptPasswordEncoder().encode("pirmas"))
                     .build();
@@ -63,31 +56,30 @@ public class ApplicationConfig {
             vehicleRepository.save(vehicle1);
 
 
-            Maintenance maintenance1 = Maintenance.builder()
+            Expense expense1 = Expense.builder()
                     .name("Oil Change")
                     .date(LocalDate.of(2022, 6, 15))
                     .price(50.0)
                     .vehicle(vehicle1)
                     .build();
 
-            maintenanceRepository.save(maintenance1);
+            expenseRepository.save(expense1);
 
-            Maintenance maintenance2 = Maintenance.builder()
+            Expense expense2 = Expense.builder()
                     .name("Brake Service")
                     .date(LocalDate.of(2022, 6, 25))
                     .price(100.0)
                     .vehicle(vehicle1)
                     .build();
 
-            maintenanceRepository.save(maintenance2);
+            expenseRepository.save(expense2);
 
 
             Owner owner2 = Owner.builder()
-                    .firstName("Jane")
+                    .firstName("John")
                     .lastName("Smith")
-                    .age(35)
-                    .email("antras@gmail.com")
-                    .password(new BCryptPasswordEncoder().encode("antras"))
+                    .email("test@mail.com")
+                    .password(new BCryptPasswordEncoder().encode("test"))
                     .build();
 
             ownerRepository.save(owner2);
@@ -109,32 +101,32 @@ public class ApplicationConfig {
 
             vehicleRepository.save(vehicle2_1);
 
-            Maintenance maintenance3 = Maintenance.builder()
+            Expense expense3 = Expense.builder()
                     .name("Oil Change")
                     .date(LocalDate.of(2022, 6, 10))
                     .price(60.0)
                     .vehicle(vehicle2_1)
                     .build();
 
-            maintenanceRepository.save(maintenance3);
+            expenseRepository.save(expense3);
 
-            Maintenance maintenance4 = Maintenance.builder()
+            Expense expense4 = Expense.builder()
                     .name("Tire Rotation")
                     .date(LocalDate.of(2022, 6, 20))
                     .price(80.0)
                     .vehicle(vehicle2_1)
                     .build();
 
-            maintenanceRepository.save(maintenance4);
+            expenseRepository.save(expense4);
 
-            Maintenance maintenance5 = Maintenance.builder()
+            Expense expense5 = Expense.builder()
                     .name("Brake Service")
                     .date(LocalDate.of(2022, 7, 5))
                     .price(100.0)
                     .vehicle(vehicle2_1)
                     .build();
 
-            maintenanceRepository.save(maintenance5);
+            expenseRepository.save(expense5);
 
             Vehicle vehicle2_2 = Vehicle.builder()
                     .brand("Ford")
@@ -152,32 +144,32 @@ public class ApplicationConfig {
 
             vehicleRepository.save(vehicle2_2);
 
-            Maintenance maintenance6 = Maintenance.builder()
+            Expense expense6 = Expense.builder()
                     .name("Oil Change")
                     .date(LocalDate.of(2022, 6, 5))
                     .price(50.0)
                     .vehicle(vehicle2_2)
                     .build();
 
-            maintenanceRepository.save(maintenance6);
+            expenseRepository.save(expense6);
 
-            Maintenance maintenance7 = Maintenance.builder()
+            Expense expense7 = Expense.builder()
                     .name("Brake Service")
                     .date(LocalDate.of(2022, 7, 15))
                     .price(120.0)
                     .vehicle(vehicle2_2)
                     .build();
 
-            maintenanceRepository.save(maintenance7);
+            expenseRepository.save(expense7);
 
-            Maintenance maintenance8 = Maintenance.builder()
+            Expense expense8 = Expense.builder()
                     .name("Oil Change")
                     .date(LocalDate.of(2022, 8, 10))
                     .price(50.0)
                     .vehicle(vehicle2_2)
                     .build();
 
-            maintenanceRepository.save(maintenance8);
+            expenseRepository.save(expense8);
 
             Vehicle vehicle2_3 = Vehicle.builder()
                     .brand("Toyota")
@@ -195,18 +187,18 @@ public class ApplicationConfig {
 
             vehicleRepository.save(vehicle2_3);
 
-            Maintenance maintenance9 = Maintenance.builder()
+            Expense expense9 = Expense.builder()
                     .name("Oil Change")
                     .date(LocalDate.of(2022, 9, 5))
                     .price(50.0)
                     .vehicle(vehicle2_3)
                     .build();
 
-            maintenanceRepository.save(maintenance9);
+            expenseRepository.save(expense9);
             Owner owner3 = Owner.builder()
                     .firstName("Michael")
                     .lastName("Johnson")
-                    .age(40)
+
                     .email("trecias@gmail.com")
                     .password(new BCryptPasswordEncoder().encode("trecias"))
                     .build();
@@ -228,23 +220,23 @@ public class ApplicationConfig {
 
             vehicleRepository.save(vehicle3_1);
 
-            Maintenance maintenance10 = Maintenance.builder()
+            Expense expense10 = Expense.builder()
                     .name("Oil Change")
                     .date(LocalDate.of(2022, 10, 5))
                     .price(50.0)
                     .vehicle(vehicle3_1)
                     .build();
 
-            maintenanceRepository.save(maintenance10);
+            expenseRepository.save(expense10);
 
-            Maintenance maintenance11 = Maintenance.builder()
+            Expense expense11 = Expense.builder()
                     .name("Brake Service")
                     .date(LocalDate.of(2022, 11, 10))
                     .price(100.0)
                     .vehicle(vehicle3_1)
                     .build();
 
-            maintenanceRepository.save(maintenance11);
+            expenseRepository.save(expense11);
 
             Vehicle vehicle3_2 = Vehicle.builder()
                     .brand("Mercedes-Benz")
@@ -260,23 +252,23 @@ public class ApplicationConfig {
                     .build();
 
             vehicleRepository.save(vehicle3_2);
-            Maintenance maintenance12 = Maintenance.builder()
+            Expense expense12 = Expense.builder()
                     .name("Oil Change")
                     .date(LocalDate.of(2022, 10, 15))
                     .price(50.0)
                     .vehicle(vehicle3_2)
                     .build();
 
-            maintenanceRepository.save(maintenance12);
+            expenseRepository.save(expense12);
 
-            Maintenance maintenance13 = Maintenance.builder()
+            Expense expense13 = Expense.builder()
                     .name("Brake Service")
                     .date(LocalDate.of(2022, 11, 20))
                     .price(100.0)
                     .vehicle(vehicle3_2)
                     .build();
 
-            maintenanceRepository.save(maintenance13);
+            expenseRepository.save(expense13);
 
         };
     }

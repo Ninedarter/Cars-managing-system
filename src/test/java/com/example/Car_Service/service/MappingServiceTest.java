@@ -1,11 +1,11 @@
 package com.example.Car_Service.service;
 
-import com.example.Car_Service.model.Maintenance;
+import com.example.Car_Service.model.Expense;
 import com.example.Car_Service.model.Owner;
 import com.example.Car_Service.model.Vehicle;
 import com.example.Car_Service.repository.OwnerRepository;
 import com.example.Car_Service.repository.VehicleRepository;
-import com.example.Car_Service.request.maintenance.MaintenanceRequest;
+import com.example.Car_Service.request.expence.ExpenseRequest;
 import com.example.Car_Service.request.vehicle.VehicleRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -59,7 +59,7 @@ class MappingServiceTest {
 
     @Test
     void shouldMapMaintenanceFromRequest() {
-        MaintenanceRequest mockedRequest = MaintenanceRequest.builder()
+        ExpenseRequest mockedRequest = ExpenseRequest.builder()
                 .vinCode("ABC123")
                 .name("Oil change")
                 .price(20.0)
@@ -71,12 +71,12 @@ class MappingServiceTest {
                 .yearOfMade(2020)
                 .build();
 
-        when(vehicleRepository.findByVinCode("ABC123")).thenReturn(Optional.of(mockedVehicle));
-        Maintenance mappedMaintenance = mappingService.mapMaintenance(mockedRequest);
+        when(vehicleRepository.findByVinCode("ABC123")).thenReturn((mockedVehicle));
+        Expense mappedExpense = mappingService.mapMaintenance(mockedRequest);
 
-        assertEquals("Oil change", mappedMaintenance.getName());
-        assertEquals(20.0, mappedMaintenance.getPrice());
-        assertEquals("ABC123", mappedMaintenance.getVehicle().getVinCode());
+        assertEquals("Oil change", mappedExpense.getName());
+        assertEquals(20.0, mappedExpense.getPrice());
+        assertEquals("ABC123", mappedExpense.getVehicle().getVinCode());
 
 
     }

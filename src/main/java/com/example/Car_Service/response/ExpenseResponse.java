@@ -1,6 +1,6 @@
 package com.example.Car_Service.response;
 
-import com.example.Car_Service.model.Maintenance;
+import com.example.Car_Service.model.Expense;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +10,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MaintenanceResponse {
+public class ExpenseResponse {
 
-    private List<Maintenance> maintenances;
+    private List<Expense> expenses;
 
 }

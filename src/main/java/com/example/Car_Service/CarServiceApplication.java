@@ -7,8 +7,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 public class CarServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CarServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CarServiceApplication.class, args);
+    }
 
 }
